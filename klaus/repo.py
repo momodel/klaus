@@ -9,7 +9,7 @@ from dulwich.objects import Blob
 from dulwich.errors import NotTreeError
 import dulwich, dulwich.patch
 
-from klaus.utils import force_unicode, parent_directory, encode_for_git, decode_from_git
+from klaus.utils import force_unicode, parent_directory, encode_for_git, decode_from_git, encode
 from klaus.diff import render_diff
 
 
@@ -26,7 +26,7 @@ class FancyRepo(dulwich.repo.Repo):
         """
         path_arr = self.path.replace(".git", "").rstrip(os.sep).split(os.sep)
         # join user_ID and repo name by '\', to distinguish repo belong to different user
-        return path_arr[-2] + '\\' + path_arr[-1]
+        return encode(path_arr[-2] + path_arr[-1])
 
     def get_last_updated_at(self):
         """Get datetime of last commit to this repository."""

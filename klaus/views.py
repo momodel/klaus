@@ -55,6 +55,7 @@ def _get_repo_and_rev(repo, rev=None, path=None):
     try:
         repo = current_app.repos[repo]
     except KeyError:
+        print('rrr', current_app.repos)
         raise NotFound("No such repository %r" % repo)
 
     if rev is None:

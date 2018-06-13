@@ -8,6 +8,10 @@ import locale
 import warnings
 import subprocess
 import six
+import base64
+from Crypto import Random
+from Crypto.Cipher import AES
+
 try:
     import chardet
 except ImportError:
@@ -15,6 +19,23 @@ except ImportError:
 
 from werkzeug.contrib.fixers import ProxyFix as WerkzeugProxyFix
 from humanize import naturaltime
+
+AKEY = '27cfbc4d262403839797636105d0a476'  # AES key must be either 16, 24, or 32 bytes long
+
+# iv = Random.new().read(AES.block_size)
+iv = 'This is an IV456'
+
+
+def encode(message):
+    obj = AES.new(AKEY, AES.MODE_CFB, iv)
+    return base64.urlsafe_b64encode(obj.encrypt(message)).decode("utf-8")
+
+
+def decode(cipher):
+    obj2 = AES.new(AKEY, AES.MODE_CFB, iv)
+    if isinstance(cipher, str):
+        cipher = cipher.encode("uft-8")
+    return obj2.decrypt(base64.urlsafe_b64decode(cipher))
 
 
 class ProxyFix(WerkzeugProxyFix):
@@ -47,14 +68,15 @@ class ProxyFix(WerkzeugProxyFix):
     :param app: the WSGI application
     :param num_proxies: the number of proxy servers in front of the app.
     """
+
     def __call__(self, environ, start_response):
         script_name = environ.get('HTTP_X_SCRIPT_NAME')
         if script_name is not None:
             if script_name.endswith('/'):
-                  warnings.warn(
-                      "'X-Script-Name' header should not end in '/' (found: %r). "
-                      "Please fix your proxy's configuration." % script_name)
-                  script_name = script_name.rstrip('/')
+                warnings.warn(
+                    "'X-Script-Name' header should not end in '/' (found: %r). "
+                    "Please fix your proxy's configuration." % script_name)
+                script_name = script_name.rstrip('/')
             environ['SCRIPT_NAME'] = script_name
         return super(ProxyFix, self).__call__(environ, start_response)
 
@@ -75,6 +97,7 @@ class SubUri(object):
 
     Snippet stolen from http://flask.pocoo.org/snippets/35/
     """
+
     def __init__(self, app):
         warnings.warn(
             "'klaus.utils.SubUri' is deprecated and will be removed. "
@@ -210,8 +233,6 @@ def replace_dupes(ls, replacement):
             last = elem
 
 
-
-
 def guess_git_revision():
     """Try to guess whether this instance of klaus is run directly from a klaus
     git checkout.  If it is, guess and return the currently checked-out commit
@@ -240,4 +261,4 @@ def sanitize_branch_name(name, chars='./', repl='-'):
 
 def escape_html(s):
     return s.replace(b'&', b'&amp;').replace(b'<', b'&lt;') \
-            .replace(b'>', b'&gt;').replace(b'"', b'&quot;')
+        .replace(b'>', b'&gt;').replace(b'"', b'&quot;')
