@@ -15,6 +15,7 @@ from klaus.diff import render_diff
 
 class FancyRepo(dulwich.repo.Repo):
     """A wrapper around Dulwich's Repo that adds some helper methods."""
+
     # TODO: factor out stuff into dulwich
     @property
     def name(self):
@@ -28,10 +29,22 @@ class FancyRepo(dulwich.repo.Repo):
         # join user_ID and repo name by '\', to distinguish repo belong to different user
         return encode(path_arr[-2] + path_arr[-1])
 
+    @property
+    def display_name(self):
+        """Get repository name from path.
+
+        1. /x/y.git -> /x/y  and  /x/y/.git/ -> /x/y//
+        2. /x/y/ -> /x/y
+        3. /x/y -> y
+        """
+        path_arr = self.path.replace(".git", "").rstrip(os.sep).split(os.sep)
+        # join user_ID and repo name by '\', to distinguish repo belong to different user
+        return path_arr[-2] + '::' + path_arr[-1]
+
     def get_last_updated_at(self):
         """Get datetime of last commit to this repository."""
         refs = [self[ref_hash] for ref_hash in self.get_refs().values()]
-        refs.sort(key=lambda obj:getattr(obj, 'commit_time', float('-inf')),
+        refs.sort(key=lambda obj: getattr(obj, 'commit_time', float('-inf')),
                   reverse=True)
         for ref in refs:
             # Find the latest ref that has a commit_time; tags do not
@@ -92,6 +105,7 @@ class FancyRepo(dulwich.repo.Repo):
         """Return a list of ref names that begin with `prefix`, ordered by the
         time they have been committed to last.
         """
+
         def get_commit_time(refname):
             obj = self[refs[refname]]
             if isinstance(obj, dulwich.objects.Tag):
@@ -186,7 +200,7 @@ class FancyRepo(dulwich.repo.Repo):
         if path:
             dirs.insert(0, (None, '..', parent_directory(path)))
 
-        return {'submodules': submodules, 'dirs' : dirs, 'files' : files}
+        return {'submodules': submodules, 'dirs': dirs, 'files': files}
 
     def commit_diff(self, commit):
         """Return the list of changes introduced by `commit`."""
@@ -197,7 +211,7 @@ class FancyRepo(dulwich.repo.Repo):
         else:
             parent_tree = None
 
-        summary = {'nfiles': 0, 'nadditions':  0, 'ndeletions':  0}
+        summary = {'nfiles': 0, 'nadditions': 0, 'ndeletions': 0}
         file_changes = []  # the changes in detail
 
         dulwich_changes = self.object_store.tree_changes(parent_tree, commit.tree)
@@ -213,7 +227,7 @@ class FancyRepo(dulwich.repo.Repo):
 
             # Check for binary files -- can't show diffs for these
             if guess_is_binary(newblob) or \
-               guess_is_binary(oldblob):
+                    guess_is_binary(oldblob):
                 file_changes.append({
                     'is_binary': True,
                     'old_filename': oldpath or '/dev/null',

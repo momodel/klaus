@@ -1,12 +1,12 @@
 {% extends 'skeleton.html' %}
 
 {% block title %}
-  {{ repo.name }} ({{ rev|shorten_sha1 }})
+  {{ repo.display_name }} ({{ rev|shorten_sha1 }})
 {% endblock %}
 
 {% block breadcrumbs %}
   <span>
-    <a href="{{ url_for('index', repo=repo.name) }}">{{ repo.name }}</a>
+    <a href="{{ url_for('index', repo=repo.name) }}">{{ repo.display_name }}</a>
     <span class=slash>/</span>
     <a href="{{ url_for('history', repo=repo.name, rev=rev) }}">{{ rev|shorten_sha1 }}</a>
   </span>
