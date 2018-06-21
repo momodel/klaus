@@ -1,5 +1,6 @@
 from __future__ import print_function
 import os
+import glob
 import time
 import threading
 
@@ -18,13 +19,17 @@ def poll_for_changes(interval, dir):
     Polls `dir` for changes every `interval` seconds and sets `should_reload`
     accordingly.
     """
-    old_contents = os.listdir(dir)
+    def list_dir2(pathname):
+        files_depth = glob.glob(f'{pathname}/*/*')
+        return list(filter(lambda f: os.path.isdir(f), files_depth))
+
+    old_contents = list_dir2(dir)
     while 1:
         time.sleep(interval)
         if _.should_reload:
             # klaus application has not seen our change yet
             continue
-        new_contents = os.listdir(dir)
+        new_contents = list_dir2(dir)
         if new_contents != old_contents:
             # Directory contents changed => should_reload
             old_contents = new_contents

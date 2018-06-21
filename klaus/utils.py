@@ -33,7 +33,7 @@ def encode(message):
 
 def decode(cipher):
     obj2 = AES.new(AKEY, AES.MODE_CFB, iv)
-    if isinstance(cipher, str):
+    if not isinstance(cipher, str):
         cipher = cipher.encode("uft-8")
     return obj2.decrypt(base64.urlsafe_b64decode(cipher))
 
