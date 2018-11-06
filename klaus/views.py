@@ -435,7 +435,7 @@ class RawView(BaseBlobView):
 class DownloadView(BaseRepoView):
     """Download a repo as a tar.gz file."""
     def get_response(self):
-        tarname = "%s@%s.tar.gz" % (self.context['repo'].name,
+        tarname = "%s@%s.tar.gz" % (self.context['repo'].display_name,
                                     sanitize_branch_name(self.context['rev']))
         headers = {
             'Content-Disposition': "attachment; filename=%s" % tarname,
