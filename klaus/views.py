@@ -378,7 +378,7 @@ class BaseFileView(TreeViewMixin, BaseBlobView):
         })
 
         binary = guess_is_binary(self.context['blob_or_tree'])
-        too_large = sum(map(len, self.context['blob_or_tree'].chunked)) > 100*1024
+        too_large = sum(map(len, self.context['blob_or_tree'].chunked)) > 5*1024*1024
         if binary:
             self.context.update({
                 'can_render': False,
