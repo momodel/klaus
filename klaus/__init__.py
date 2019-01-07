@@ -24,8 +24,7 @@ class Klaus(flask.Flask):
 
             user_repo_paths = [os.path.join(user_dir, x) for x in os.listdir(user_dir)]
             # 剔除不含有 .git 文件夹的 path
-            repo_objs += [FancyRepo(path) for path in user_repo_paths
-                          if os.path.isdir(os.path.join(path, '.git'))]
+            repo_objs += [FancyRepo(path) for path in user_repo_paths if os.listdir(path)]
         self.repos = dict((repo.name, repo) for repo in repo_objs)
         self.site_name = site_name
         self.use_smarthttp = use_smarthttp
