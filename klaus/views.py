@@ -27,7 +27,7 @@ from klaus.utils import parent_directory, subpaths, force_unicode, guess_is_bina
                         guess_is_image, replace_dupes, sanitize_branch_name, encode_for_git
 
 
-README_FILENAMES = [b'README', b'README.md', b'README.rst']
+README_FILENAMES = [b'OVERVIEW', b'OVERVIEW.md', b'OVERVIEW.rst']
 
 
 def repo_list():
