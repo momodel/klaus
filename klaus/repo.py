@@ -39,7 +39,7 @@ class FancyRepo(dulwich.repo.Repo):
         """
         path_arr = self.path.replace(".git", "").rstrip(os.sep).split(os.sep)
         # join user_ID and repo name by '\', to distinguish repo belong to different user
-        return path_arr[-2] + '::' + path_arr[-1]
+        return path_arr[-1]
 
     def get_last_updated_at(self):
         """Get datetime of last commit to this repository."""
