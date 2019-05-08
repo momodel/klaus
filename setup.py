@@ -14,11 +14,11 @@ def install_data_files_hack():
 
 install_data_files_hack()
 
-requires = ['six', 'flask', 'pygments', 'dulwich>=0.13.0', 'httpauth', 'humanize']
+requires = ['six', 'flask', 'pygments', 'dulwich>=0.19.3', 'httpauth', 'humanize']
 
 setup(
     name='klaus',
-    version='1.2.2',
+    version='1.4.0',
     author='Jonas Haag',
     author_email='jonas@lophus.org',
     packages=['klaus', 'klaus.contrib'],

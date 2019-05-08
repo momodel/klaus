@@ -27,19 +27,17 @@ from klaus.utils import parent_directory, subpaths, force_unicode, guess_is_bina
                         guess_is_image, replace_dupes, sanitize_branch_name, encode_for_git
 
 
-# README_FILENAMES = [b'README', b'README.md', b'README.rst']
-README_FILENAMES = [b'OVERVIEW', b'OVERVIEW.md', b'OVERVIEW.rst']
+# README_FILENAMES = b'README', b'README.md', b'README.mkdn', b'README.mdwn', b'README.markdown', b'README.rst']
+README_FILENAMES = b'OVERVIEW', b'OVERVIEW.md', b'OVERVIEW.mkdn', b'OVERVIEW.mdwn', b'OVERVIEW.markdown', b'OVERVIEW.rst']
 
 
 def repo_list():
     """Show a list of all repos and can be sorted by last update."""
-    if 'by-last-update' in request.args:
-        sort_key = lambda repo: repo.get_last_updated_at()
-        reverse = True
-    else:
+    if 'by-name' in request.args:
         sort_key = lambda repo: repo.name
-        reverse = False
-    repos = sorted(current_app.repos.values(), key=sort_key, reverse=reverse)
+    else:
+        sort_key = lambda repo: (-(repo.get_last_updated_at() or -1), repo.name)
+    repos = sorted(current_app.repos.values(), key=sort_key)
     return render_template('repo_list.html', repos=repos, base_href=None)
 
 
@@ -280,12 +278,11 @@ class IndexView(TreeViewMixin, BaseRepoView):
                 'rendered_code': None,
             })
         else:
+            readme_filename = force_unicode(readme_filename)
+            readme_data = force_unicode(readme_data)
             self.context.update({
                 'is_markup': markup.can_render(readme_filename),
-                'rendered_code': highlight_or_render(
-                    force_unicode(readme_data),
-                    force_unicode(readme_filename),
-                ),
+                'rendered_code': highlight_or_render(readme_data, readme_filename)
             })
 
 
@@ -436,8 +433,9 @@ class RawView(BaseBlobView):
 class DownloadView(BaseRepoView):
     """Download a repo as a tar.gz file."""
     def get_response(self):
-        tarname = "%s@%s.tar.gz" % (self.context['repo'].display_name,
-                                    sanitize_branch_name(self.context['rev']))
+        basename = "%s@%s" % (self.context['repo'].display_name,
+                              sanitize_branch_name(self.context['rev']))
+        tarname = basename + ".tar.gz"
         headers = {
             'Content-Disposition': "attachment; filename=%s" % tarname,
             'Cache-Control': "no-store",  # Disables browser caching
@@ -447,7 +445,8 @@ class DownloadView(BaseRepoView):
             self.context['repo'],
             self.context['blob_or_tree'],
             self.context['commit'].commit_time,
-            format="gz"
+            format="gz",
+            prefix=encode_for_git(basename),
         )
         return Response(
             tar_stream,

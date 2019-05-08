@@ -6,7 +6,8 @@ import dulwich.web
 from klaus import views, utils
 from klaus.repo import FancyRepo
 
-KLAUS_VERSION = utils.guess_git_revision() or '1.2.2'
+
+KLAUS_VERSION = utils.guess_git_revision() or '1.4.0'
 
 
 class Klaus(flask.Flask):

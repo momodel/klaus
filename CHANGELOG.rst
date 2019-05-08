@@ -1,6 +1,21 @@
 Changelog
 =========
 
+1.4.0 (May 7, 2019)
+-------------------
+- #217: Add man page (Jelmer Vernooĳ)
+- #229: Better download tarball names (Jelmer Vernooĳ)
+- #219: More markdown file extensions (Chris Pressey)
+- #237: Default to ordering repositories by last update (Jonas Haag)
+- Bug fixes #221, #224, #226, #225, #227, #234, #233 (Christian Ulrich, Jelmer Vernooĳ, Jonas Haag)
+
+1.3.0 (June 19, 2018)
+--------------------
+- Split `klaus.contrib.autoreload` into main and entrypoint logic so it's
+  easier to customise it to your needs. (Jakob Hirsch)
+- #212, #213: Fix docutils rendering (Jelmer Vernooĳ)
+- #204, #214: Put files into subdirectory in tarball download (Jelmer Vernooĳ)
+
 1.2.2 (Feb 14, 2018)
 -------------------
 - #202: Windows encoding problem (Jonas Haag)

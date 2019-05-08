@@ -1,4 +1,5 @@
 # encoding: utf-8
+import binascii
 import os
 import re
 import time
@@ -157,11 +158,12 @@ def force_unicode(s):
     if isinstance(s, six.text_type):
         return s
 
+    last_exc = None
     # Try some default encodings:
     try:
         return s.decode('utf-8')
     except UnicodeDecodeError as exc:
-        pass
+        last_exc = exc
     try:
         return s.decode(locale.getpreferredencoding())
     except UnicodeDecodeError:
@@ -173,7 +175,7 @@ def force_unicode(s):
         if encoding is not None:
             return s.decode(encoding)
 
-    raise exc  # Give up.
+    raise last_exc  # Give up.
 
 
 def extract_author_name(email):
@@ -191,8 +193,18 @@ def extract_author_name(email):
     return email
 
 
+def is_hex_prefix(s):
+    if len(s) % 2:
+        s += '0'
+    try:
+        binascii.unhexlify(s)
+        return True
+    except binascii.Error:
+        return False
+
+
 def shorten_sha1(sha1):
-    if re.match(r'[a-z\d]{20,40}', sha1):
+    if 20 <= len(sha1) <= 40 and is_hex_prefix(sha1):
         sha1 = sha1[:7]
     return sha1
 
@@ -262,3 +274,21 @@ def sanitize_branch_name(name, chars='./', repl='-'):
 def escape_html(s):
     return s.replace(b'&', b'&amp;').replace(b'<', b'&lt;') \
         .replace(b'>', b'&gt;').replace(b'"', b'&quot;')
+
+
+def tarball_basename(repo_name, rev):
+    """Determine the name for a tarball."""
+    rev = sanitize_branch_name(rev, chars='/')
+    if rev.startswith(repo_name + '-'):
+        # If the rev is a tag name that already starts with the repo name,
+        # skip it.
+        return rev
+    elif len(rev) >= 2 and rev[0] == 'v' and not rev[1].isalpha():
+        # If the rev is a tag name prefixed by a 'v', skip the 'v'.
+        # So, v-1.0 -> 1.0, v1.0 -> 1.0, but vanilla -> vanilla.
+        return "%s-%s" % (repo_name, rev[1:])
+    elif len(rev) == 40 and is_hex_prefix(rev):
+        # If the rev is a commit hash, simply use that.
+        return "%s@%s" % (repo_name, rev)
+    else:
+        return "%s-%s" % (repo_name, rev)
