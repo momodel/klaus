@@ -28,7 +28,9 @@ from klaus.utils import parent_directory, subpaths, force_unicode, guess_is_bina
 
 
 # README_FILENAMES = b'README', b'README.md', b'README.mkdn', b'README.mdwn', b'README.markdown', b'README.rst']
-README_FILENAMES = [b'OVERVIEW', b'OVERVIEW.md', b'OVERVIEW.mkdn', b'OVERVIEW.mdwn', b'OVERVIEW.markdown', b'OVERVIEW.rst']
+README_FILENAMES = [b'_OVERVIEW.rst', b'_OVERVIEW', b'_OVERVIEW.md', b'_OVERVIEW.mkdn', b'_OVERVIEW.mdwn',
+                    b'_OVERVIEW.markdown', b'_OVERVIEW.rst', b'OVERVIEW', b'OVERVIEW.md', b'OVERVIEW.mkdn',
+                    b'OVERVIEW.mdwn', b'OVERVIEW.markdown']
 
 
 def repo_list():
