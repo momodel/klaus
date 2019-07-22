@@ -4,6 +4,69 @@
 <link rel=stylesheet href={{ url_for('static', filename='pygments.css') }}>
 <link rel=stylesheet href={{ url_for('static', filename='klaus.css') }}>
 <link rel=icon type="image/png" href="{{ url_for('static', filename='favicon.png') }}" />
+
+<!-- Start Google Analytics -->
+<script>
+    const gtmDict = {
+        'localhost:8899': '',
+
+        '192.168.31.11:8899': 'GTM-TW67359',
+        's.momodel.cn': 'GTM-TW67359',
+
+        'momodel.natapp1.cc': 'GTM-KJR4BDW',
+        '10.214.223.201:8899': 'GTM-KJR4BDW',
+        'momodel-zju.natapp1.cc': 'GTM-KJR4BDW',
+
+        'www.momodel.cn:8899': 'GTM-TNSNRQ9',
+        'momodel.cn': 'GTM-TNSNRQ9',
+        '36.26.77.39:8899': 'GTM-TNSNRQ9',
+    }
+    const gtmId = gtmDict[window.location.host] || ''
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []
+    w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js',
+    })
+    var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''
+    j.async = true
+    j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+    f.parentNode.insertBefore(j, f)
+})(window, document, 'script', 'dataLayer', gtmId)</script>
+<!-- End Google Tag Manager -->
+
+<script>
+    const isCrawler = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|crawler|crawling|spider/i.test(navigator.userAgent)
+    const isInIframe = window.location !== window.parent.location
+    const repoName = window.location.pathname.split('/')[2]
+    const param = window.location.pathname.split('/')[3] + '=' + encodeURIComponent(window.location.pathname.split('/').slice(4).join('/'))
+    const distOriginDict = {
+        'http://www.momodel.cn:8899': 'https://momodel.cn',
+        'http://momodel.cn': 'https://momodel.cn'
+    }
+    const distOrigin = distOriginDict[window.location.origin] || window.location.origin
+    if (!isCrawler && !isInIframe) {
+        fetch(`/pyapi/project/projects/${repoName}?by=encoded_name`)
+            .then(response => response.json())
+            .then((res) => {
+                const project = res.response
+                let url
+                if (window.location.pathname.split('/')[3]) {
+                    url = `${distOrigin}/explore/${project._id}?type=${project.type}&${param}`
+                } else {
+                    url = `${distOrigin}/explore/${project._id}?type=${project.type}`
+                }
+                location.replace(url)
+            })
+    }
+</script>
+
 {% if base_href %}
 <base href="{{ base_href }}"/>
 {% endif %}
