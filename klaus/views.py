@@ -449,7 +449,7 @@ class DownloadView(BaseRepoView):
             self.context['commit'].commit_time,
             format="gz",
 #             prefix=encode_for_git(basename),
-            prefix=basename.decode('utf-8').encode('gb18030')
+            prefix=basename.encode('gb18030')
         )
         return Response(
             tar_stream,
