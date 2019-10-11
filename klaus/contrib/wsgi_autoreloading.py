@@ -5,6 +5,7 @@ import time
 import threading
 
 from klaus import make_app
+from flask import render_template
 
 
 # Shared state between poller and application wrapper
@@ -41,11 +42,18 @@ def make_autoreloading_app(repos_root, *args, **kwargs):
         if _.should_reload:
             # Refresh inner application with new repo list
             print("Reloading repository list...")
-            _.inner_app = make_app(
+            inner_app = make_app(
                 [os.path.join(repos_root, x) for x in os.listdir(repos_root)],
                 *args, **kwargs
             )
+            @inner_app.errorhandler(404)
+            def not_found(e):
+                # defining function
+                return render_template("404.html")
+
+            _.inner_app = inner_app
             _.should_reload = False
+
         return _.inner_app(environ, start_response)
 
     # Background thread that polls the directory for changes

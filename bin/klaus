@@ -12,7 +12,7 @@ from dulwich.repo import Repo
 
 from klaus import make_app, KLAUS_VERSION
 from klaus.utils import force_unicode
-
+from flask import render_template
 
 def git_repository(path):
     path = os.path.abspath(path)
@@ -91,7 +91,9 @@ def main():
 
     if args.browser:
         _open_browser(args)
-
+    @app.errorhandler(404)
+    def not_found(e):
+        return render_template("404.html")
     app.run(args.host, args.port, args.debug)
 
 def _open_browser(args):
