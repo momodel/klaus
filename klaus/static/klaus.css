@@ -359,7 +359,12 @@ li.commit-li {
   box-shadow: none !important;
 }
 
+div[data-scroll='true']::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+  height: 6px;
 
+}
 div[data-scroll='true']::-webkit-scrollbar-thumb {
     border-radius: 4px;
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
