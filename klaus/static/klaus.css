@@ -147,7 +147,8 @@ footer a:hover { text-decoration: none; }
   margin-bottom: 2px;
   padding: 8px 10px;
   background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
+  /*border: 1px solid #e0e0e0;*/
+  border-radius: 4px;
 }
 .commit:hover { text-decoration: none; }
 

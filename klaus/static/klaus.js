@@ -20,6 +20,10 @@ var toggler = {
   },
   expandAll: function(selector) {
     forEach(document.querySelectorAll(selector), toggler.expand);
+  },
+  rawClick: function () {
+    console.log('点击')
+    window.postMessage({ id: 'sourceCode', action: 'showBack' }, '*')
   }
 };
 
