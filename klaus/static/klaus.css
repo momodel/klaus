@@ -153,7 +153,13 @@ footer a:hover { text-decoration: none; }
 
 /* History View */
 .history .pagination { margin-top: -2em; }
-a.commit { color: black !important; }
+a.commit {
+  color: black !important;
+  border: none;
+}
+li.commit-li {
+  margin-bottom: 10px;
+}
 
 .tree ul {
   font-family: monospace;
