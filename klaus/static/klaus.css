@@ -155,7 +155,10 @@ footer a:hover { text-decoration: none; }
 .history .pagination { margin-top: -2em; }
 a.commit { color: black !important; }
 
-.tree ul { font-family: monospace; border-top: 1px solid #e0e0e0; }
+.tree ul {
+  font-family: monospace;
+  /*border-top: 1px solid #e0e0e0; */
+}
 .tree li {
   /*background-color: #f9f9f9;*/
   /*border: 1px solid #e0e0e0; */
