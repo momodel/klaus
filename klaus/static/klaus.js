@@ -22,8 +22,8 @@ var toggler = {
     forEach(document.querySelectorAll(selector), toggler.expand);
   },
   rawClick: function () {
-    console.log('点击')
-    window.postMessage({ id: 'sourceCode', action: 'showBack' }, '*')
+    console.log('点击', window.parent)
+    window.parent.postMessage({ id: 'sourceCode', action: 'showBack' }, '*')
   }
 };
 
