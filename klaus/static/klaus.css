@@ -34,7 +34,9 @@ header { font-size: 90%; padding: 0.5%; border-bottom: 3px solid #e0e0e0; }
 header a { padding: 0.5% 0; }
 /*header .breadcrumbs > span:before { content: ' » '; color: #666; }*/
 header .slash { margin: 0 -2px; }
-
+header .breadcrumbs {
+  font-size: 14px;
+}
 
 /* Branch/tag selector */
 .branch-selector {
