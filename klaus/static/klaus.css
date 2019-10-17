@@ -156,6 +156,7 @@ footer a:hover { text-decoration: none; }
 a.commit {
   color: black !important;
   border: none;
+  border-radius: 4px;
 }
 li.commit-li {
   margin-bottom: 10px;
