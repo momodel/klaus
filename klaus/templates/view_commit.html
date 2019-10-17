@@ -32,7 +32,7 @@
       with <span class=additions>{{ summary.nadditions }} addition(s)</span>
       and <span class=deletions>{{ summary.ndeletions }} deletion(s)</span>.
     </span>
-    <span onclick="toggler.rawClick(); return false">
+    <span onclick="toggler.rawClick();">
       <a href="{{ url_for('patch', repo=repo.name, rev=commit.id|force_unicode) }}">Raw diff</a>
     </span>
     <span>

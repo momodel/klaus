@@ -29,7 +29,9 @@
         {% endif %}
         &middot;
       {% endif %}
-      <a href="{{ raw_url }}">raw</a>
+      <span onclick="toggler.rawClick();">
+          <a href="{{ raw_url }}">raw</a>
+      </span>
       &middot; <a href="{{ url_for('history', repo=repo.name, rev=rev, path=path) }}">history</a>
       {% if not is_binary and not too_large %}
       &middot; <a href="{{ url_for('blame', repo=repo.name, rev=rev, path=path) }}">blame</a>
