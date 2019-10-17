@@ -134,6 +134,8 @@ def formattimestamp(timestamp):
 def guess_is_binary(dulwich_blob):
     return any(b'\0' in chunk for chunk in dulwich_blob.chunked)
 
+def get_file_type(name):
+    return (name.split('.'))[len(name.split('.')) -1]
 
 def guess_is_image(filename):
     mime, _ = mimetypes.guess_type(filename)
