@@ -134,8 +134,22 @@ def formattimestamp(timestamp):
 def guess_is_binary(dulwich_blob):
     return any(b'\0' in chunk for chunk in dulwich_blob.chunked)
 
+
 def get_file_type(name):
-    return (name.split('.'))[len(name.split('.')) -1]
+    """
+    返回文件的格式
+    :param name:
+    :return:
+    """
+    type = (name.split('.'))[len(name.split('.')) -1]
+    if type == 'png' or type == 'jpg' or type == 'jpeg' or type == 'gif':
+        type = 'img'
+    if type == 'mp4' or type == 'rmvb' or type == 'avi' or type == 'flv':
+        type = 'video'
+    if type == 'mp3' or type == 'wav':
+        type = 'audio'
+    return type
+
 
 def guess_is_image(filename):
     mime, _ = mimetypes.guess_type(filename)
