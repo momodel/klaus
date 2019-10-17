@@ -358,3 +358,23 @@ li.commit-li {
   width: 100%;
   box-shadow: none !important;
 }
+
+
+div[data-scroll='true']::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    color: #e5e5e5;
+    background: #e5e5e5;
+}
+
+div[data-scroll='true']::-webkit-scrollbar-thumb:hover {
+  color: #8a8a8a;
+  background: #8a8a8a;
+  width: 8px;
+  height: 8px;
+}
+
+
+div[data-scroll='true']::-webkit-scrollbar-corner {
+    background: transparent;
+}
