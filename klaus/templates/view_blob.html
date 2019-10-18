@@ -16,7 +16,7 @@
 {% endmacro %}
 
 <div class=blobview>
-  <h3>
+  <h3 style="font-size: 14px; margin-bottom: 30px; margin-top: 23px">
     {{ filename|force_unicode }}
     <span>
       @<a href="{{ url_for('commit', repo=repo.name, rev=rev) }}">{{ rev|shorten_sha1 }}</a>
