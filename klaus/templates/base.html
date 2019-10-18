@@ -5,31 +5,28 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-  <span>
-  {% block extra_header %}
-      <div class=branch-selector>
-          <span>{{ rev|shorten_sha1 }}</span>
-          <div>
-            <ul class=branches>
-              {% for branch in branches %}
-                  <li><a href="{{ url_for('history', repo=repo.name, rev=rev, path=path) }}">{{ branch }}</a></li>
-              {% endfor %}
-            </ul>
-              {% if tags %}
-                  <ul class=tags>
-              {% for tag in tags %}
-                  <li><a href="{{ url_for('history', repo=repo.name, rev=rev, path=path) }}">{{ tag }}</a></li>
-              {% endfor %}
-            </ul>
-              {% endif %}
-          </div>
-      </div>
-  {% endblock %}
+    {% block extra_header %}
+        <div class=branch-selector>
+            <span>{{ rev|shorten_sha1 }}</span>
+            <div>
+                <ul class=branches>
+                    {% for branch in branches %}
+                        <li><a href="{{ url_for(view, repo=repo.name, rev=branch, path=path) }}">{{ branch }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% if tags %}
+                    <ul class=tags>
+                        {% for tag in tags %}
+                            <li><a href="{{ url_for(view, repo=repo.name, rev=tag, path=path) }}">{{ tag }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    {% endblock %}
+{#  <span>#}
 {#    <a href="{{ url_for('history', repo=repo.name, rev=rev) }}">{{ rev|shorten_sha1 }}</a>#}
-{#    {% if subpaths %}#}
-{#        <span style="margin-right: 8px">:</span>#}
-{#    {% endif %}#}
-  </span>
+{#  </span>#}
 
   {% if subpaths %}
   <span id='repo-subpath'>
