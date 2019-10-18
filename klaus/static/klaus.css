@@ -61,17 +61,19 @@ header .breadcrumbs {
   background-color: #fcfcfc;
   position: relative;
 }
-.branch-selector > span {
+.branch-selector > .branch-name {
   border: 1px solid #f1f1f1;
   padding: 4px 5px;
   float: right;
   border-radius: 4px;
 }
-.branch-selector > span:after { content: "∨"; margin-left: 5px; }
-.branch-selector > span:after:hover {
-  content: 'ss';
+.branch-name-icon {
+  content: '+';
 }
-.branch-selector > span:hover { background-color: #fefefe; cursor: pointer; }
+.branch-selector > .branch-name:hover .branch-name-icon{
+  content: '-';
+}
+.branch-selector > .branch-name:hover { background-color: #fefefe; cursor: pointer; }
 .branch-selector div {
   z-index: 1;
   clear: both;
