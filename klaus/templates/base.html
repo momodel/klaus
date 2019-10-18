@@ -12,13 +12,13 @@
                 <div>
                     <ul class=branches>
                         {% for branch in branches %}
-                            <li><a href="{{ url_for('history', repo=repo.name) }}">{{ branch }}</a></li>
+                            <li><a href="{{ url_for('history', repo=repo.name, rev=branch) }}">{{ branch }}</a></li>
                         {% endfor %}
                     </ul>
                     {% if tags %}
                         <ul class=tags>
                             {% for tag in tags %}
-                                <li><a href="{{ url_for('history', repo=repo.name) }}">{{ tag }}</a></li>
+                                <li><a href="{{ url_for('history', repo=repo.name, rev=tag) }}">{{ tag }}</a></li>
                             {% endfor %}
                         </ul>
                     {% endif %}
