@@ -176,6 +176,9 @@ li.commit-li {
   margin-bottom: 10px;
 }
 
+.tree {
+  margin-top: 16px;
+}
 .tree ul {
   font-family: monospace;
   /*border-top: 1px solid #e0e0e0; */
