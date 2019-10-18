@@ -31,9 +31,7 @@
     {% else %}
       Commit History
     {% endif %}
-    <span>
-      @<a href="{{ url_for('index', repo=repo.name, rev=rev) }}">{{ rev }}</a>
-    </span>
+
     {% if USE_SMARTHTTP %}
         <code>git clone {{ url_for('index', repo=repo.name, _external=True) }}</code>
     {% endif %}
