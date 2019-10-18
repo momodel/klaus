@@ -67,10 +67,10 @@ header .breadcrumbs {
   float: right;
   border-radius: 4px;
 }
-.branch-name-icon {
+.branch-name-icon:before {
   content: '+';
 }
-.branch-selector > .branch-name:hover .branch-name-icon{
+.branch-selector > .branch-name:hover .branch-name-icon:before{
   content: '-';
 }
 .branch-selector > .branch-name:hover { background-color: #fefefe; cursor: pointer; }
