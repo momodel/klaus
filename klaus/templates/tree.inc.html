@@ -1,5 +1,5 @@
 <div class=tree>
-  <h3>Tree @<a href="{{ url_for('commit', repo=repo.name, rev=rev) }}">{{ rev|shorten_sha1 }}</a>
+  <h3><a href="{{ url_for('commit', repo=repo.name, rev=rev) }}">{{ rev|shorten_sha1 }}</a>
 <!--     <span>(<a href="{{ url_for('download', repo=repo.name, rev=rev) }}">Download .tar.gz</a>)</span> -->
   </h3>
   <ul>
