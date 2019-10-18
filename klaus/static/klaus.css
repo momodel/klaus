@@ -44,6 +44,7 @@ header a { padding: 0.5% 0; }
 header .slash { margin: 0 -2px; }
 header .breadcrumbs {
   font-size: 14px;
+  display: flex;
 }
 
 /* Branch/tag selector */
