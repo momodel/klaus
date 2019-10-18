@@ -67,7 +67,7 @@ header .breadcrumbs {
   float: right;
   border-radius: 4px;
 }
-.branch-selector > span:after { content: "☟"; margin-left: 5px; }
+.branch-selector > span:after { content: "∨"; margin-left: 5px; }
 .branch-selector > span:hover { background-color: #fefefe; cursor: pointer; }
 .branch-selector div {
   z-index: 1;
