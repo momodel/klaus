@@ -152,7 +152,7 @@ def get_file_type(name):
         type = 'doc'
     if type == 'ppt' or type == 'pptx':
         type = 'ppt'
-    if type == 'xls' or type == 'xlsx':
+    if type == 'xls' or type == 'xlsx' or type == 'csv':
         type = 'xls'
     return type
 
