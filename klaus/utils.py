@@ -148,6 +148,12 @@ def get_file_type(name):
         type = 'video'
     if type == 'mp3' or type == 'wav':
         type = 'audio'
+    if type == 'doc' or type == 'docx':
+        type = 'doc'
+    if type == 'ppt' or type == 'pptx':
+        type = 'ppt'
+    if type == 'xls' or type == 'xlsx':
+        type = 'xls'
     return type
 
 
