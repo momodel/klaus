@@ -50,7 +50,7 @@ header .breadcrumbs {
 .branch-selector {
   position: absolute;
   top: 0px;
-  right: 0px;
+  /*right: 0px;*/
   font-size: 90%;
   background-color: #fefefe;
   border-radius: 2px;
