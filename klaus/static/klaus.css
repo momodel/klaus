@@ -68,6 +68,9 @@ header .breadcrumbs {
   border-radius: 4px;
 }
 .branch-selector > span:after { content: "∨"; margin-left: 5px; }
+.branch-selector > span:after:hover {
+  content: 'ss';
+}
 .branch-selector > span:hover { background-color: #fefefe; cursor: pointer; }
 .branch-selector div {
   z-index: 1;
