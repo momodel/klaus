@@ -19,7 +19,7 @@
 {% endmacro %}
 
 <div class=history>
-  <h2>
+  <h3>
     {% if subpaths %}
       History of
       {% for name, subpath in subpaths %}
@@ -40,7 +40,7 @@
     {% if repo.cloneurl %}
         <code>git clone {{ repo.cloneurl }}</code>
     {% endif %}
-  </h2>
+  </h3>
 
   {{ pagination() }}
 
