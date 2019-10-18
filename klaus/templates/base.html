@@ -24,11 +24,11 @@
               {% endif %}
           </div>
       </div>
-  {% endblock %}
-    <a href="{{ url_for('history', repo=repo.name, rev=rev) }}">{{ rev|shorten_sha1 }}</a>
-    {% if subpaths %}
-        <span style="margin-right: 8px">:</span>
-    {% endif %}
+{#  {% endblock %}#}
+{#    <a href="{{ url_for('history', repo=repo.name, rev=rev) }}">{{ rev|shorten_sha1 }}</a>#}
+{#    {% if subpaths %}#}
+{#        <span style="margin-right: 8px">:</span>#}
+{#    {% endif %}#}
   </span>
 
   {% if subpaths %}
