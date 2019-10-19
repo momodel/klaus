@@ -34,6 +34,7 @@
   {% if subpaths %}
   <span id='repo-subpath'>
     {% for name, subpath in subpaths %}
+        <span class=slash>/</span>
       {% if loop.last %}
       <a href="">{{ name|force_unicode }}</a>
       {% else %}
