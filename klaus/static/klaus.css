@@ -298,11 +298,15 @@ div.input_prompt {
 .blobview .markup {
   border: none;
   border-radius: 4px;
-  padding-left: 0;
+
 }
 .blobview .markup h1:first-child { margin-top: 8px; }
-.blobview .markup { padding: 0 10px; }
+.blobview .markup { padding: 0 10px; padding-left: 0;}
 
+#notebook-container {
+  padding-top: 0px;
+  padding-left: 0px;
+}
 
 /* Blame View */
 .blameview .highlighttable { border-top: 0; border-bottom: 0; border-left: 0; }
