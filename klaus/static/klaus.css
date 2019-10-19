@@ -287,9 +287,19 @@ li.commit-li {
   padding: 0;
 }
 
-
+div.code_cell{
+  padding: 0 !important;
+}
+div.input_prompt {
+  padding-top: 0!important;
+  padding-left: 0!important;
+}
 /* Blob View */
-.blobview .markup { border: 1px solid #e0e0e0; border-radius: 4px }
+.blobview .markup {
+  border: none;
+  border-radius: 4px;
+  padding-left: 0;
+}
 .blobview .markup h1:first-child { margin-top: 8px; }
 .blobview .markup { padding: 0 10px; }
 
