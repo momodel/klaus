@@ -304,8 +304,8 @@ div.input_prompt {
 .blobview .markup { padding: 0 10px; padding-left: 0;}
 
 #notebook-container {
-  padding-top: 0px;
-  padding-left: 0px;
+  padding-top: 0px!important;
+  padding-left: 0px!important;
 }
 
 /* Blame View */
