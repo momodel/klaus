@@ -157,6 +157,17 @@ def get_file_type(name):
     return type
 
 
+def file_name_lower(name):
+    """
+    将平台文档的名字小写
+    :param name:
+    :return:
+    """
+    if name == '_OVERVIEW.md' or name == ' _README.ipynb':
+        name = name.lower()
+    return name
+
+
 def guess_is_image(filename):
     mime, _ = mimetypes.guess_type(filename)
     if mime is None:

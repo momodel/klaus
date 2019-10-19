@@ -45,7 +45,8 @@ class Klaus(flask.Flask):
             'shorten_message',
             'extract_author_name',
             'formattimestamp',
-            'get_file_type'
+            'get_file_type',
+            'file_name_lower'
         ]:
             env.filters[func] = getattr(utils, func)
 
