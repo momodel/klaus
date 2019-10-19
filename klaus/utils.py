@@ -163,7 +163,7 @@ def file_name_lower(name):
     :param name:
     :return:
     """
-    if name == '_OVERVIEW.md' or name == ' _README.ipynb':
+    if name == '_OVERVIEW.md' or name == '_README.ipynb':
         name = name.lower()
     return name
 
