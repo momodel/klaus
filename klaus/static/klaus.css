@@ -441,3 +441,12 @@ div[data-scroll='true']::-webkit-scrollbar-thumb:hover {
 div[data-scroll='true']::-webkit-scrollbar-corner {
     background: transparent;
 }
+.branch-selector-singal {
+  position: absolute;
+  top: 2px;
+  /* right: 0px; */
+  font-size: 90%;
+  background-color: #fefefe;
+  border-radius: 2px;
+  display: inline-block;
+}
