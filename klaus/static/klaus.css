@@ -7,7 +7,7 @@ body, header, #content {
 
 /* Reset */
 body { margin: 0; padding: 0 !important; font-family: sans-serif; }
-a, a:visited { color: #003278; text-decoration: none; }
+a, a:visited { color: #1890ff; text-decoration: none; }
 
 table { border-spacing: 0; border-collapse: collapse; }
 a{
@@ -63,7 +63,7 @@ header .breadcrumbs {
   position: relative;
 }
 .branch-selector > .branch-name {
-  border: 1px solid #f1f1f1;
+  /*border: 1px solid #f1f1f1;*/
   padding: 4px 5px;
   float: right;
   border-radius: 4px;
@@ -114,7 +114,13 @@ footer a:hover { text-decoration: none; }
 
 
 /* Container */
-#content { padding: 5px 1.5%; padding-left: 0 }
+#content {
+  padding: 5px 0px;
+  /*padding-left: 0;*/
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
 #content > div:nth-of-type(1),
 #content > div:nth-of-type(2) { float: left; }
 #content > div:nth-of-type(1) { width: 24%; margin-top: 0px}
