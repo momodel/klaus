@@ -446,7 +446,8 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   top: 2px;
   /* right: 0px; */
   font-size: 90%;
-  background-color: #fefefe;
+  background-color: #fcfcfc;
   border-radius: 2px;
-  display: inline-block;
+  display: block;
+  padding: 5px;
 }
