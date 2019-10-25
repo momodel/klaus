@@ -51,7 +51,7 @@ header .breadcrumbs {
 /* Branch/tag selector */
 .branch-selector {
   position: absolute;
-  top: 0px;
+  top: 2px;
   /*right: 0px;*/
   font-size: 90%;
   background-color: #fefefe;
