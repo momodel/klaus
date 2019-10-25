@@ -33,10 +33,10 @@
 
   {% if subpaths %}
   <span id='repo-subpath'>
+   <span class=slash>/</span>
     {% for name, subpath in subpaths %}
-        <span class=slash>/</span>
       {% if loop.last %}
-      <a href="">{{ name|force_unicode }}</a>
+      <a href="">{{ name|force_unicode | file_name_lower  }}</a>
       {% else %}
       <a href="{{ url_for('history', repo=repo.name, rev=rev, path=subpath) }}">{{ name|force_unicode | file_name_lower }}</a>
       <span class=slash>/</span>
