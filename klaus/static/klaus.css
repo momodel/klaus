@@ -39,7 +39,7 @@ h2 > code:last-of-type {
 }
 
 /* Header */
-header { font-size: 90%; padding: 0.5%; border-bottom: 1px solid #e0e0e0; padding-left: 0 }
+header { font-size: 90%; padding: 0.5%; border-bottom: 1px solid #e0e0e0; padding-left: 0; padding-bottom: 0 }
 header a { padding: 0.5% 0; }
 /*header .breadcrumbs > span:before { content: ' » '; color: #666; }*/
 header .slash { margin: 0 -2px; }
@@ -443,7 +443,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 }
 .branch-selector-singal {
   position: absolute;
-  top: 2px;
+  top: 6px;
   /* right: 0px; */
   font-size: 90%;
   background-color: #fcfcfc;
