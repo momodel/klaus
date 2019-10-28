@@ -443,10 +443,10 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 }
 .branch-selector-singal {
   position: absolute;
-  top: -1px;
+  top: 0px;
   /* right: 0px; */
   font-size: 90%;
-  background-color: #fcfcfc;
+  /*background-color: #fcfcfc;*/
   border-radius: 2px;
   display: block;
   padding: 5px;
