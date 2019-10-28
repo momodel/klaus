@@ -30,7 +30,7 @@ h2 > code:last-of-type {
 .hastooltip { cursor: help; }
 .separated-by-dots > span:not(:first-child):before { content: '·'; margin: 0 3px 0 5px; }
 
-.slash { color: #666; margin: 0 -0.2em; }
+.slash { color: #8a8a8a; margin: 0 -0.2em; }
 
 .history ul, .repolist, .tree ul, .branch-selector ul {
   list-style-type: none;
