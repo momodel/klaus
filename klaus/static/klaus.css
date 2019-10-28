@@ -443,7 +443,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 }
 .branch-selector-singal {
   position: absolute;
-  top: 6px;
+  top: -1px;
   /* right: 0px; */
   font-size: 90%;
   background-color: #fcfcfc;
