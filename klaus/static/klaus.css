@@ -490,6 +490,9 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   border-right: 18px solid #EAF5FF;
   border-top: 17px solid transparent;
   border-bottom: 17px solid transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 #tree-list {
   transition: all 0.5s;

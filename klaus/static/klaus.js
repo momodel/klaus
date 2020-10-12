@@ -27,11 +27,18 @@ var toggler = {
   },
   hideTree: function () {
     const treeList = document.getElementById('tree-list')
+    const blobView = document.getElementsByClassName('blobview')[0]
     let classListArr =Array.from(window['tree-list'].classList)
+    let blobViewClassList =Array.from(blobView.classList)
     if(classListArr.includes('tree-hide')){
       treeList.classList.remove('tree-hide')
     } else {
       treeList.classList.add('tree-hide')
+    }
+    if(blobViewClassList.includes('tree-hide')){
+      blobView.classList.remove('tree-hide')
+    } else {
+      blobView.classList.add('tree-hide')
     }
     console.log('treeList.classList', treeList.classList)
   }
