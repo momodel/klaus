@@ -485,6 +485,11 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   position: absolute;
   left: -24px;
   top: 9vh;
+  height:100px;
+  width:0;
+  border-right:100px solid #EAF5FF;
+  border-top:60px solid transparent;
+  border-bottom:60px solid transparent;
 }
 #tree-list {
   transition: all 0.5s;
