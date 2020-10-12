@@ -483,9 +483,11 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 
 #tree-toggle {
   position: absolute;
+  height:100px;
   left: -51px;
   top: 9vh;
-  height:100px;
+}
+#tree-toggle:first-child{
   width:0;
   border-right: 18px solid #EAF5FF;
   border-top: 17px solid transparent;
