@@ -512,3 +512,6 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 #content #tree-list.tree-hide a {
   display: none;
 }
+#tree-toggle-icon {
+  position: absolute;
+}

@@ -16,7 +16,10 @@
 {% endmacro %}
 
 <div class=blobview>
-	<div id=tree-toggle onclick="toggler.hideTree();">收缩</div>
+	<div style="position: relative">
+		<div id=tree-toggle onclick="toggler.hideTree();"></div>
+		<div id=tree-toggle-icon>收缩</div>
+	</div>
     <h3 style="font-size: 14px;  margin-top: 8px; display: none">
     {{ filename| force_unicode | file_name_lower}}
     <span style="font-size: 14px">
