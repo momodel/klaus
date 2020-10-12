@@ -27,7 +27,11 @@ var toggler = {
   },
   hideTree: function () {
     const treeList = document.getElementById('tree-list')
-
+    if(treeList.includes('tree-hide')){
+      treeList.removeClass('tree-hide')
+    } else {
+      treeList.addClass('tree-hide')
+    }
     console.log('treeList.classList', treeList.classList)
   }
 };
