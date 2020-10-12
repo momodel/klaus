@@ -168,6 +168,16 @@ def file_name_lower(name):
     return name
 
 
+def check_is_md_file(name):
+    """
+    检查是否是 md 文件
+    :return:
+    """
+    if name.endswith('.md'):
+        return 'yes'
+    return 'no'
+
+
 def guess_is_image(filename):
     mime, _ = mimetypes.guess_type(filename)
     if mime is None:
