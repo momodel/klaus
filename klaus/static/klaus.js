@@ -24,6 +24,11 @@ var toggler = {
   rawClick: function () {
     console.log('点击', window.parent)
     window.parent.postMessage({ id: 'sourceCode', action: 'showBack' }, '*')
+  },
+  hideTree: function () {
+    const treeList = document.getElementById('tree-list')
+
+    console.log('treeList.classList', treeList.classList)
   }
 };
 
