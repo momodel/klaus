@@ -480,7 +480,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 
 #tree-toggle {
   position: absolute;
-  right: 0;
+  left: -24px;
   top: 9vh;
 }
 #tree-list {
@@ -489,4 +489,9 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 #content #tree-list.tree-hide {
   width: 0;
   padding-left: 0;
+  padding-right: 0;
+
+}
+#content #tree-list.tree-hide a {
+  display: none;
 }
