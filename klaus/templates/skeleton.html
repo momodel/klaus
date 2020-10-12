@@ -70,7 +70,6 @@
 
 <script>
 	window.onload = function () {
-		console.log(1111, window, window.frameElement.getAttribute('data-height'), document.getElementById('content'))
 	  if(window.frameElement.getAttribute('data-height') && document.getElementById('content')){
 	    document.getElementById('content').style.minHeight = `${window.frameElement.getAttribute('data-height')}px`
 	  }
