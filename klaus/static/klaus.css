@@ -326,6 +326,7 @@ li.commit-li {
 }
 .blobview {
   position: relative;
+  padding-top: 26px;
 }
 
 div.code_cell{
