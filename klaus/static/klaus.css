@@ -541,6 +541,6 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   display: block;
 }
 
-.blobview.tree-hide[data-md='yes'] {
+.blobview.tree-hide[data-md='yes'] .markup{
   margin-left: 27px;
 }
