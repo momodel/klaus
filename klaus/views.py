@@ -19,17 +19,21 @@ except ImportError:
     ctags = None
 else:
     from klaus import ctagscache
+
     CTAGS_CACHE = ctagscache.CTagsCache()
 
 from klaus import markup
 from klaus.highlighting import highlight_or_render
-from klaus.utils import parent_directory, subpaths, force_unicode, guess_is_binary, \
-                        guess_is_image, replace_dupes, sanitize_branch_name, encode_for_git
+from klaus.utils import parent_directory, subpaths, force_unicode, \
+    guess_is_binary, \
+    guess_is_image, replace_dupes, sanitize_branch_name, encode_for_git
 
-
-# README_FILENAMES = b'README', b'README.md', b'README.mkdn', b'README.mdwn', b'README.markdown', b'README.rst']
-README_FILENAMES = [b'_OVERVIEW.rst', b'_OVERVIEW', b'_OVERVIEW.md', b'_OVERVIEW.mkdn', b'_OVERVIEW.mdwn',
-                    b'_OVERVIEW.markdown', b'_OVERVIEW.rst', b'OVERVIEW', b'OVERVIEW.md', b'OVERVIEW.mkdn',
+# README_FILENAMES = b'README', b'README.md', b'README.mkdn', b'README.mdwn',
+# b'README.markdown', b'README.rst']
+README_FILENAMES = [b'_OVERVIEW.rst', b'_OVERVIEW', b'_OVERVIEW.md',
+                    b'_OVERVIEW.mkdn', b'_OVERVIEW.mdwn',
+                    b'_OVERVIEW.markdown', b'_OVERVIEW.rst', b'OVERVIEW',
+                    b'OVERVIEW.md', b'OVERVIEW.mkdn',
                     b'OVERVIEW.mdwn', b'OVERVIEW.markdown']
 
 
@@ -43,9 +47,9 @@ def repo_list():
     return render_template('repo_list.html', repos=repos, base_href=None)
 
 
-
 def robots_txt():
-    """Serve the robots.txt file to manage the indexing of the site by search engines."""
+    """Serve the robots.txt file to manage the indexing of the site by
+    search engines."""
     return current_app.send_static_file('robots.txt')
 
 
@@ -103,6 +107,7 @@ class BaseRepoView(View):
     is "/foo/bar", only commits related to "/foo/bar" are displayed, and if
     `rev` is "master", the history of the "master" branch is displayed.
     """
+
     def __init__(self, view_name):
         self.view_name = view_name
         self.context = {}
@@ -161,13 +166,16 @@ class PatchView(BaseRepoView):
 
 
 class TreeViewMixin(object):
-    """The logic required for displaying the current directory in the sidebar."""
+    """The logic required for displaying the current directory in the
+    sidebar."""
+
     def make_template_context(self, *args):
         super(TreeViewMixin, self).make_template_context(*args)
         self.context['root_tree'] = self.listdir()
 
     def listdir(self):
-        """Return a list of directories and files in the current path of the selected commit."""
+        """Return a list of directories and files in the current path of the
+        selected commit."""
         root_directory = self.get_root_directory()
         return self.context['repo'].listdir(
             self.context['commit'],
@@ -198,9 +206,10 @@ class HistoryView(TreeViewMixin, BaseRepoView):
 
         history_length = 30
         if page:
-            skip = (self.context['page']-1) * 30 + 10
+            skip = (self.context['page'] - 1) * 30 + 10
             if page > 7:
-                self.context['previous_pages'] = [0, 1, 2, None] + list(range(page))[-3:]
+                self.context['previous_pages'] = [0, 1, 2, None] + list(
+                    range(page))[-3:]
             else:
                 self.context['previous_pages'] = range(page)
         else:
@@ -284,7 +293,8 @@ class IndexView(TreeViewMixin, BaseRepoView):
             readme_data = force_unicode(readme_data)
             self.context.update({
                 'is_markup': markup.can_render(readme_filename),
-                'rendered_code': highlight_or_render(readme_data, readme_filename)
+                'rendered_code': highlight_or_render(readme_data,
+                                                     readme_filename)
             })
 
 
@@ -338,12 +348,14 @@ class SubmoduleView(BaseRepoView):
 
 class BaseFileView(TreeViewMixin, BaseBlobView):
     """Base for FileView and BlameView."""
+
     def render_code(self, render_markup):
         should_use_ctags = current_app.should_use_ctags(self.context['repo'],
                                                         self.context['commit'])
         if should_use_ctags:
             if ctags is None:
-                raise ImportError("Ctags enabled but python-ctags not installed")
+                raise ImportError(
+                    "Ctags enabled but python-ctags not installed")
             ctags_base_url = url_for(
                 self.view_name,
                 repo=self.context['repo'].name,
@@ -355,7 +367,8 @@ class BaseFileView(TreeViewMixin, BaseBlobView):
                 self.context['commit'].id
             )
             ctags_args = {
-                'ctags': ctags.CTags(ctags_tagsfile.encode(sys.getfilesystemencoding())),
+                'ctags': ctags.CTags(
+                    ctags_tagsfile.encode(sys.getfilesystemencoding())),
                 'ctags_baseurl': ctags_base_url,
             }
         else:
@@ -378,7 +391,8 @@ class BaseFileView(TreeViewMixin, BaseBlobView):
         })
 
         binary = guess_is_binary(self.context['blob_or_tree'])
-        too_large = sum(map(len, self.context['blob_or_tree'].chunked)) > 5*1024*1024
+        too_large = sum(
+            map(len, self.context['blob_or_tree'].chunked)) > 5 * 1024 * 1024
         if binary:
             self.context.update({
                 'can_render': False,
@@ -413,7 +427,8 @@ class BlameView(BaseFileView):
     def make_template_context(self, *args):
         super(BlameView, self).make_template_context(*args)
         if self.context['can_render']:
-            line_commits = self.context['repo'].blame(self.context['commit'], self.context['path'])
+            line_commits = self.context['repo'].blame(self.context['commit'],
+                                                      self.context['path'])
             replace_dupes(line_commits, None)
             self.context.update({
                 'rendered_code': self.render_code(render_markup=False),
@@ -425,15 +440,18 @@ class RawView(BaseBlobView):
     """Show a single file in raw for (as if it were a normal filesystem file
     served through a static file server).
     """
+
     def get_response(self):
         # Explicitly set an empty mimetype. This should work well for most
         # browsers as they do file type recognition anyway.
-        # The correct way would be to implement proper file type recognition here.
+        # The correct way would be to implement proper file type recognition
+        # here.
         return Response(self.context['blob_or_tree'].chunked, mimetype='')
 
 
 class DownloadView(BaseRepoView):
     """Download a repo as a tar.gz file."""
+
     def get_response(self):
         basename = "%s@%s" % (self.context['repo'].display_name,
                               sanitize_branch_name(self.context['rev']))
