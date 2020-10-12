@@ -486,6 +486,6 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 #tree-list {
   transition: all 0.5s;
 }
-#tree-list.tree-hide {
+#content #tree-list.tree-hide {
   width: 0;
 }
