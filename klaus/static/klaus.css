@@ -494,6 +494,11 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   align-items: center;
   cursor: pointer;
 }
+#content .blobview.tree-hide {
+  left: -32px;
+  border-right: 0;
+  border-left: 18px solid #EAF5FF;
+}
 #tree-list {
   transition: all 0.5s;
 }
@@ -501,6 +506,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   width: 0;
   padding-left: 0;
   padding-right: 0;
+  border: none;
 
 }
 #content #tree-list.tree-hide a {
