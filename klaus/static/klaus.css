@@ -518,7 +518,22 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   position: absolute;
   left: 2px;
 }
+#tree-toggle-icon img:first-child {
+  display: block;
+}
+
+#tree-toggle-icon img:last-child {
+  display: none;
+}
+
 #content .blobview.tree-hide #tree-toggle-icon {
   position: absolute;
   left: -16px;
 }
+#content .blobview.tree-hide #tree-toggle-icon img:first-child {
+  display: none;
+}
+#content .blobview.tree-hide #tree-toggle-icon img:last-child {
+  display: block;
+}
+
