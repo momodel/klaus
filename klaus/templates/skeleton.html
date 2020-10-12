@@ -5,6 +5,7 @@
 <link rel=stylesheet href={{ url_for('static', filename='klaus.css') }}>
 <link rel=icon type="image/png" href="{{ url_for('static', filename='favicon.png') }}" />
 
+
 <!-- Start Google Analytics -->
 <script>
     const gtmDict = {
@@ -83,7 +84,7 @@
 
 <script src={{ url_for('static', filename='klaus.js') }}></script>
 
-<header>
+<header style="display: none">
 {#  <a href={{ url_for('repo_list') }}>#}
 {#    {{ SITE_NAME }}#}
 {#  </a>#}
