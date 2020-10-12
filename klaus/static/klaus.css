@@ -7,7 +7,7 @@ body, header, #content {
 
 /* Reset */
 body { margin: 0; padding: 0 !important; font-family: sans-serif; }
-a, a:visited { color: #1890ff; text-decoration: none; }
+a, a:visited { color: #1890ff; text-decoration: none!important; }
 
 table { border-spacing: 0; border-collapse: collapse; }
 a{
@@ -124,7 +124,7 @@ footer a:hover { text-decoration: none; }
 #content > div:nth-of-type(1),
 #content > div:nth-of-type(2) { float: left; }
 #content > div:nth-of-type(1) { width: 24%; margin-top: 0px}
-#content > div:nth-of-type(2) { width: 72%; margin-left: 1.5%; }
+#content > div:nth-of-type(2) { width: calc(100% - 28%); margin-left: 1.5%; }
 
 
 /* Pagination */
