@@ -520,10 +520,12 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 }
 #tree-toggle-icon img:first-child {
   display: block;
+  width: 16px;
 }
 
 #tree-toggle-icon img:last-child {
   display: none;
+  width: 16px;
 }
 
 #content .blobview.tree-hide #tree-toggle-icon {
