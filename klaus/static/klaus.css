@@ -296,6 +296,7 @@ li.commit-li {
   border-radius: 2px;
   position: relative;
   top: 2px;
+  margin-right: 8px;
 }
 .markup h2 {
   margin-left: -12px;
