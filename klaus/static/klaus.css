@@ -287,6 +287,15 @@ li.commit-li {
   background-color: #f9f9f9;
 }
 
+.markup h2:before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background: #1890FF;
+  border-radius: 2px;
+}
+
 
 /* Blob, Blame View */
 .blobview table, .blameview table { min-width: 100%; }
