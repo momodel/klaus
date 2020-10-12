@@ -514,6 +514,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 #content #tree-list.tree-hide a {
   display: none;
 }
-#tree-toggle-icon {
+#content .blobview.tree-hide #tree-toggle-icon {
   position: absolute;
+  left: -16px;
 }
