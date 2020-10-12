@@ -294,6 +294,11 @@ li.commit-li {
   height: 20px;
   background: #1890FF;
   border-radius: 2px;
+  position: relative;
+  top: 2px;
+}
+.markup h2 {
+  margin-left: -12px;
 }
 
 
