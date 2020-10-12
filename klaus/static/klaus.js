@@ -27,7 +27,8 @@ var toggler = {
   },
   hideTree: function () {
     const treeList = document.getElementById('tree-list')
-    if(treeList.includes('tree-hide')){
+    let classListArr =Array.from(window['tree-list'].classList)
+    if(classListArr.includes('tree-hide')){
       treeList.removeClass('tree-hide')
     } else {
       treeList.addClass('tree-hide')
