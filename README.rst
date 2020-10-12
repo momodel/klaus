@@ -1,3 +1,8 @@
+自定义过滤器
+
+1. 在 ``klaus/utils.py`` 文件底下定义你想要的过滤器
+2. 在 ``klaus/__init__.py`` 文件里面的 ``create_jinja_environment`` 添加你的过滤器
+
 |travis-badge| |gitter-badge|
 
 .. |travis-badge| image:: https://travis-ci.org/jonashaag/klaus.svg?branch=master
