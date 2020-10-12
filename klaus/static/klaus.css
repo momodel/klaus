@@ -488,4 +488,5 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 }
 #content #tree-list.tree-hide {
   width: 0;
+  padding-left: 0;
 }
