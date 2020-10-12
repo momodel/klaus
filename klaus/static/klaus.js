@@ -40,7 +40,6 @@ var toggler = {
     } else {
       blobView.classList.add('tree-hide')
     }
-    console.log('treeList.classList', treeList.classList)
   }
 };
 
