@@ -16,13 +16,7 @@
 {% endmacro %}
 
 <div class=blobview data-md="{{ filename | check_is_md_file }}">
-	<div id=tree-toggle onclick="toggler.hideTree();">
-		<div></div>
-		<div id=tree-toggle-icon>
-			<img src="{{ url_for('static', filename='icon_open_left.png') }}" alt="">
-			<img src="{{ url_for('static', filename='icon_open_right.png') }}" alt="">
-		</div>
-	</div>
+
     <h3 style="font-size: 14px;  margin-top: 8px; display: none">
     {{ filename| force_unicode | file_name_lower}}
     <span style="font-size: 14px">
