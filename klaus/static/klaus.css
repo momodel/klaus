@@ -530,14 +530,14 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   width: 16px;
 }
 
-#content .blobview.tree-hide #tree-toggle-icon {
+#content #tree-list.tree-hide #tree-toggle-icon {
   position: absolute;
   left: -16px;
 }
-#content .blobview.tree-hide #tree-toggle-icon img:first-child {
+#content #tree-list.tree-hide #tree-toggle-icon img:first-child {
   display: none;
 }
-#content .blobview.tree-hide #tree-toggle-icon img:last-child {
+#content #tree-list.tree-hide #tree-toggle-icon img:last-child {
   display: block;
 }
 
