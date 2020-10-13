@@ -486,15 +486,15 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 
 #tree-toggle {
   position: absolute;
-  height:100px;
+  height:72px;
   right: 0px;
   top: 9vh;
 }
 #tree-toggle:first-child{
   width:0;
   border-right: 18px solid #EAF5FF;
-  border-top: 17px solid transparent;
-  border-bottom: 17px solid transparent;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
   display: flex;
   align-items: center;
   cursor: pointer;
