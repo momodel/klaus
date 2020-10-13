@@ -45,7 +45,7 @@
   <ul>
   {% for commit in history %}
     <li class=commit-li>
-      <span class=commit href="{{ url_for('commit', repo=repo.name, rev=commit.id|force_unicode) }}">
+      <a class=commit href="{{ url_for('commit', repo=repo.name, rev=commit.id|force_unicode) }}">
         <span class=line1>
           <span>{{ commit.message|force_unicode|shorten_message }}</span>
         </span>
@@ -61,7 +61,7 @@
           </span>
         </span>
         <span class=clearfloat></span>
-      </span>
+      </a>
     </li>
   {% endfor %}
   </ul>
