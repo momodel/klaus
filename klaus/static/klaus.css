@@ -485,7 +485,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 #tree-toggle {
   position: absolute;
   height:100px;
-  left: -51px;
+  right: 0px;
   top: 9vh;
 }
 #tree-toggle:first-child{
@@ -497,7 +497,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   align-items: center;
   cursor: pointer;
 }
-#content .blobview.tree-hide #tree-toggle{
+#content #tree-list.tree-hide #tree-toggle{
   left: -32px;
   border-right: 0;
   border-left: 18px solid #EAF5FF;
@@ -532,7 +532,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 
 #content #tree-list.tree-hide #tree-toggle-icon {
   position: absolute;
-  left: -16px;
+  left: 2px;
 }
 #content #tree-list.tree-hide #tree-toggle-icon img:first-child {
   display: none;
