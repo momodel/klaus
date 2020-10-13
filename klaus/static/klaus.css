@@ -200,6 +200,9 @@ a.commit {
 li.commit-li {
   margin-bottom: 10px;
 }
+.history {
+  padding-right: 24px;
+}
 
 .tree {
   margin-top: 16px;
