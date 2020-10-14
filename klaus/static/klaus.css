@@ -1,6 +1,6 @@
 @charset "utf-8";
 :root {
-  --border-clor: 'rgb(245, 245, 245)'
+  --border-clor: rgb(245, 245, 245)
 }
 body, header, #content {
   background: white;
