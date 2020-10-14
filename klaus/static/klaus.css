@@ -1,6 +1,7 @@
 @charset "utf-8";
 :root {
-  --klaus-border-clor: rgb(245, 245, 245)
+  --klaus-border-clor: rgb(245, 245, 245);
+  --klaus-tree-width: 217px;
 }
 body, header, #content {
   background: white;
@@ -129,7 +130,7 @@ footer a:hover { text-decoration: none; }
 #content > div:nth-of-type(1),
 /*#content > div:nth-of-type(2) { float: left; }*/
 #content > div:nth-of-type(1) {
-  width: 24%;
+  width: var(--klaus-tree-width);
   margin-top: 0px;
   border-right: 1px solid var(--klaus-border-clor);
   padding-top: 10px;
@@ -497,7 +498,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 #tree-toggle {
   position: absolute;
   height:48px;
-  left: calc(24% + 16px);
+  left: calc(var(--klaus-tree-width) + 6px);
   top: 23vh;
   transition: all 0.5s;
 }
