@@ -85,7 +85,9 @@
 	  function addTreeToggle(treeList) {
 
         const treeToggle = document.createElement('div')
-        treeToggle.onclick = toggler.hideTree()
+        treeToggle.onclick = function (){
+          toggler.hideTree()
+        }
         treeToggle.id = 'tree-toggle'
         const treeToggleWrap = document.createElement('div')
         treeToggleWrap.id = 'tree-toggle-icon'
