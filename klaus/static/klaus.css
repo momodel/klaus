@@ -132,6 +132,8 @@ footer a:hover { text-decoration: none; }
   border-right: 1px solid #dededea3;
   padding-top: 10px;
   padding-right: 1%;
+  overflow-y: scroll;
+  height: 100%;
 }
 #content > div:nth-of-type(2) {
   flex: 1;
