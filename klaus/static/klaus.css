@@ -497,6 +497,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   height:48px;
   left: calc(24% + 16px);
   top: 23vh;
+  transition: all 0.5s;
 }
 
 #content.tree-hide #tree-toggle{
