@@ -27,7 +27,7 @@ var toggler = {
   },
   hideTree: function () {
     const treeList = document.getElementById('tree-list')
-    const blobView = document.getElementById('content').lastElementChild
+    const blobView = document.getElementById('content').children[1]
     let classListArr =Array.from(window['tree-list'].classList)
     let blobViewClassList =Array.from(blobView.classList)
     console.log('111', localStorage['user_ID'])
