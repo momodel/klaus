@@ -28,12 +28,15 @@ var toggler = {
   hideTree: function () {
 
     const content = document.getElementById('content')
+    const treeList = document.getElementById('tree-list')
+    const treeToggle = document.getElementById('tree-toggle')
 
     let classListArr =Array.from(content.classList)
 
     console.log('111', localStorage['user_ID'])
     if(classListArr.includes('tree-hide')){
       content.classList.remove('tree-hide')
+      treeToggle.style.left = `${treeList.getBoundingClientRect().width + 7}px`
     } else {
       content.classList.add('tree-hide')
     }
