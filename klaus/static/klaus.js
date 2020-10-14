@@ -30,6 +30,7 @@ var toggler = {
     const blobView = document.getElementById('content').lastElementChild
     let classListArr =Array.from(window['tree-list'].classList)
     let blobViewClassList =Array.from(blobView.classList)
+    console.log('111', localStorage['user_ID'])
     if(classListArr.includes('tree-hide')){
       treeList.classList.remove('tree-hide')
     } else {
