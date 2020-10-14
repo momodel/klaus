@@ -73,6 +73,20 @@
 	  const content = document.getElementById('content')
 	  if(content){
         content.children[1].setAttribute('data-scroll', 'true')
+	    const treeList = content.children[0]
+        treeList.setAttribute('data-scroll', 'true')
+	    const treeToggle = document.createElement('div')
+	    treeToggle.onclick = toggler.hideTree()
+        treeToggle.id = 'tree-toggle'
+	    const treeToggleWrap = document.createElement('div')
+	    treeToggle.id = 'tree-toggle-icon'
+	    const img1 = document.createElement('img')
+	    const img2 = document.createElement('img')
+	    img1.src = 'https://mo-imgs.momodel.cn/icon_ym_shouqi.svg'
+        img2.src = 'https://mo-imgs.momodel.cn/icon_ym_zhankai.svg'
+        treeToggleWrap.appendChild(img1)
+        treeToggleWrap.appendChild(img2)
+        treeList.appendChild(treeToggleWrap)
 	  }
 	  if(window.frameElement.getAttribute('data-height') && document.getElementById('content')){
 	    document.getElementById('content').style.height = `${window.frameElement.getAttribute('data-height')}px`
