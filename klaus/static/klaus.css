@@ -486,23 +486,14 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 
 #tree-toggle {
   position: absolute;
-  height:72px;
+  height:48px;
   right: 0px;
   top: 9vh;
 }
-#tree-toggle:first-child{
-  width:0;
-  border-right: 18px solid #EAF5FF;
-  border-top: 9px solid transparent;
-  border-bottom: 9px solid transparent;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
+
 #content #tree-list.tree-hide #tree-toggle{
   left: 0px;
   border-right: 0;
-  border-left: 18px solid #EAF5FF;
 }
 #tree-list {
   transition: all 0.5s;
