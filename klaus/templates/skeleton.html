@@ -72,16 +72,18 @@
 	window.onload = function () {
 	  const content = document.getElementById('content')
 	  if(content){
-        content.children[1].setAttribute('data-scroll', 'true')
+	    const contentWrap = content.children[1]
+        contentWrap.setAttribute('data-scroll', 'true')
 	    const treeList = content.children[0]
-        addTreeToggle(treeList)
+        treeList.setAttribute('data-scroll', 'true')
+        addTreeToggle(contentWrap)
 	  }
 	  if(window.frameElement.getAttribute('data-height') && document.getElementById('content')){
 	    document.getElementById('content').style.height = `${window.frameElement.getAttribute('data-height')}px`
 	  }
 
 	  function addTreeToggle(treeList) {
-        treeList.setAttribute('data-scroll', 'true')
+
         const treeToggle = document.createElement('div')
         treeToggle.onclick = toggler.hideTree()
         treeToggle.id = 'tree-toggle'
