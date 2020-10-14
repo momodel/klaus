@@ -138,7 +138,7 @@ footer a:hover { text-decoration: none; }
   height: 100%;
 }
 #content > div:nth-of-type(2) {
-  width: calc(96% - var(--klaus-tree-width));
+  flex: 1;
   margin-left: 4%;
   padding-top: 10px;
   height: 100%;
