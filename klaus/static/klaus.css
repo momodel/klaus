@@ -1,5 +1,7 @@
 @charset "utf-8";
-
+:root {
+  --border-clor: 'rgb(245, 245, 245)'
+}
 body, header, #content {
   background: white;
   overflow: hidden;
@@ -39,7 +41,7 @@ h2 > code:last-of-type {
 }
 
 /* Header */
-header { font-size: 90%; padding: 0.5%; border-bottom: 1px solid #dededea3; padding-left: 0; padding-bottom: 0 }
+header { font-size: 90%; padding: 0.5%; border-bottom: 1px solid var(--border-clor); padding-left: 0; padding-bottom: 0 }
 header a { padding: 0.5% 0; }
 /*header .breadcrumbs > span:before { content: ' » '; color: #666; }*/
 header .slash { margin: 0 -2px; }
@@ -129,7 +131,7 @@ footer a:hover { text-decoration: none; }
 #content > div:nth-of-type(1) {
   width: 24%;
   margin-top: 0px;
-  border-right: 1px solid #dededea3;
+  border-right: 1px solid var(--border-clor);
   padding-top: 10px;
   padding-right: 1%;
   overflow-y: scroll;
