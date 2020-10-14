@@ -489,6 +489,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   height:48px;
   right: 17px;
   top: 9vh;
+  cursor: pointer;
 }
 
 #content #tree-list.tree-hide #tree-toggle{
