@@ -10,13 +10,13 @@
 {#	</div>#}
   <ul>
     {% for name, fullpath in root_tree.dirs %}
-    <li><a href="{{ url_for('history', repo=repo.name, rev=rev, path=fullpath) }}" class=dir>{{ name }}</a></li>
+    <li title="{{ name }}"><a href="{{ url_for('history', repo=repo.name, rev=rev, path=fullpath) }}" class=dir>{{ name }}</a></li>
     {% endfor %}
     {% for name, fullpath in root_tree.submodules %}
-    <li><a href="{{ url_for('submodule', repo=repo.name, rev=rev, path=fullpath) }}" class=submodule>{{ name }}</a></li>
+    <li title="{{ name }}><a href="{{ url_for('submodule', repo=repo.name, rev=rev, path=fullpath) }}" class=submodule>{{ name }}</a></li>
     {% endfor %}
     {% for name, fullpath in root_tree.files %}
-    <li><a href="{{ url_for('blob', repo=repo.name, rev=rev, path=fullpath) }}" class={{ name | get_file_type }}>{{ name | file_name_lower }}</a></li>
+    <li title="{{ name | file_name_lower }}"><a href="{{ url_for('blob', repo=repo.name, rev=rev, path=fullpath) }}" class={{ name | get_file_type }}>{{ name | file_name_lower }}</a></li>
     {% endfor %}
   </ul>
 </div>
