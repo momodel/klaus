@@ -26,20 +26,16 @@ var toggler = {
     window.parent.postMessage({ id: 'sourceCode', action: 'showBack' }, '*')
   },
   hideTree: function () {
-    const treeList = document.getElementById('tree-list')
-    const blobView = document.getElementById('content').children[1]
-    let classListArr =Array.from(window['tree-list'].classList)
-    let blobViewClassList =Array.from(blobView.classList)
+
+    const content = document.getElementById('content')
+
+    let classListArr =Array.from(content.classList)
+
     console.log('111', localStorage['user_ID'])
     if(classListArr.includes('tree-hide')){
-      treeList.classList.remove('tree-hide')
+      content.classList.remove('tree-hide')
     } else {
-      treeList.classList.add('tree-hide')
-    }
-    if(blobViewClassList.includes('tree-hide')){
-      blobView.classList.remove('tree-hide')
-    } else {
-      blobView.classList.add('tree-hide')
+      content.classList.add('tree-hide')
     }
   }
 };
