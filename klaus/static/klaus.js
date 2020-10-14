@@ -36,7 +36,6 @@ var toggler = {
     console.log('111', localStorage['user_ID'])
     if(classListArr.includes('tree-hide')){
       content.classList.remove('tree-hide')
-      treeToggle.style.left = `${treeList.getBoundingClientRect().width + 7}px`
     } else {
       content.classList.add('tree-hide')
     }
