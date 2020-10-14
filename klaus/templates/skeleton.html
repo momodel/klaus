@@ -70,8 +70,12 @@
 
 <script>
 	window.onload = function () {
+	  const content = document.getElementById('content')
+	  if(content){
+        content.children[1].setAttribute('data-scroll', 'true')
+	  }
 	  if(window.frameElement.getAttribute('data-height') && document.getElementById('content')){
-	    document.getElementById('content').style.minHeight = `${window.frameElement.getAttribute('data-height')}px`
+	    document.getElementById('content').style.height = `${window.frameElement.getAttribute('data-height')}px`
 	  }
     }
 </script>
@@ -91,7 +95,7 @@
 {#  {% block extra_header %}{% endblock %}#}
 </header>
 
-<div id=content data-scroll="true">
+<div id=content>
 {% block content %}{% endblock %}
 </div>
 
