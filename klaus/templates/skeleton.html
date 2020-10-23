@@ -77,11 +77,16 @@
 	    const treeList = content.children[0]
         treeList.setAttribute('data-scroll', 'true')
         addTreeToggle(content)
+	    // 添加
+	    if(window.frameElement.getAttribute('data-toggle')){
+	      content.classList.add('tree-hide')
+	    }
 	  }
 	  if(window.frameElement.getAttribute('data-height') && document.getElementById('content')){
 	    document.getElementById('content').style.height = `${window.frameElement.getAttribute('data-height')}px`
 	  }
 
+	  // 添加展开和收起的图标
 	  function addTreeToggle(treeList) {
 
         const treeToggle = document.createElement('div')
