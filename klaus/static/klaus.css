@@ -2,6 +2,7 @@
 :root {
   --klaus-border-clor: rgb(245, 245, 245);
   --klaus-tree-width: 217px;
+  --kalus-toggle-tree-height: 50px
 }
 body, header, #content {
   background: white;
@@ -496,9 +497,9 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 
 #tree-toggle {
   position: absolute;
-  height:48px;
+  height: var(--kalus-toggle-tree-height);
   left: calc(var(--klaus-tree-width) + 6px);
-  top: 23vh;
+  top: calc(50% - var(--kalus-toggle-tree-height) / 2);
   transition: all 0.5s;
 }
 
