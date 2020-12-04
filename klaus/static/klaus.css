@@ -531,6 +531,9 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 #content.tree-hide #tree-toggle:hover .expand{
   display: inline-block;
 }
+#content.tree-hide #tree-toggle:hover .close {
+  display: none;
+}
 
 #tree-list {
   transition: all 0.5s;
