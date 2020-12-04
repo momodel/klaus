@@ -519,6 +519,18 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   border-top-right-radius: 112px;
   border-bottom-right-radius: 112px;
 }
+
+.tree-toggle-icon svg {
+  width: 20px;
+  display: none;
+}
+#content.tree-hide #tree-toggle:hover svg:last-child{
+  display: inline-block;
+}
+#tree-toggle:hover svg:first-child{
+  display: inline-block;
+}
+
 #tree-list {
   transition: all 0.5s;
   margin-left: 24px;
