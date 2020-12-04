@@ -520,14 +520,15 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   border-bottom-right-radius: 112px;
 }
 
-.tree-toggle-icon svg {
+#tree-toggle svg{
   width: 20px;
   display: none;
 }
-#content.tree-hide #tree-toggle:hover svg:last-child{
+
+#tree-toggle:hover .close{
   display: inline-block;
 }
-#tree-toggle:hover svg:first-child{
+#content.tree-hide #tree-toggle:hover .expand{
   display: inline-block;
 }
 
