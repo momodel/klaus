@@ -525,7 +525,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   display: none;
 }
 
-#tree-toggle:hover .close{
+#tree-toggle .close{
   display: inline-block;
 }
 #content.tree-hide #tree-toggle .expand{
