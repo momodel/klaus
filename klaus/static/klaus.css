@@ -2,7 +2,7 @@
 :root {
   --klaus-border-clor: rgb(245, 245, 245);
   --klaus-tree-width: 217px;
-  --kalus-toggle-tree-height: 100px
+  --kalus-toggle-tree-height: 130px
 }
 body, header, #content {
   background: white;
@@ -528,10 +528,10 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 #tree-toggle:hover .close{
   display: inline-block;
 }
-#content.tree-hide #tree-toggle:hover .expand{
+#content.tree-hide #tree-toggle .expand{
   display: inline-block;
 }
-#content.tree-hide #tree-toggle:hover .close {
+#content.tree-hide #tree-toggle .close {
   display: none;
 }
 
