@@ -2,7 +2,7 @@
 :root {
   --klaus-border-clor: rgb(245, 245, 245);
   --klaus-tree-width: 217px;
-  --kalus-toggle-tree-height: 50px
+  --kalus-toggle-tree-height: 100px
 }
 body, header, #content {
   background: white;
@@ -501,10 +501,20 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   left: calc(var(--klaus-tree-width) + 6px);
   top: calc(50% - var(--kalus-toggle-tree-height) / 2);
   transition: all 0.5s;
+  width: 18px;
+  border: 1px solid #eaf5ff;
+  border-top-left-radius: 112px;
+  border-bottom-left-radius: 112px;
+  background: #eaf5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #content.tree-hide #tree-toggle{
   left: 15px;
+  border-top-right-radius: 112px;
+  border-bottom-right-radius: 112px;
 }
 #tree-list {
   transition: all 0.5s;
@@ -520,31 +530,7 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
 #content.tree-hide #tree-list a {
   display: none;
 }
-#tree-toggle-icon {
-  position: absolute;
-  left: 2px;
-  cursor: pointer;
-}
-#tree-toggle-icon img:first-child {
-  display: block;
-  width: 16px;
-}
 
-#tree-toggle-icon img:last-child {
-  display: none;
-  width: 16px;
-}
-
-#content.tree-hide #tree-toggle-icon {
-  position: absolute;
-  left: -16px;
-}
-#content.tree-hide #tree-toggle-icon img:first-child {
-  display: none;
-}
-#content.tree-hide #tree-toggle-icon img:last-child {
-  display: block;
-}
 
 #content.tree-hide .blobview[data-md='yes'] .markup{
   margin-left: 27px;
