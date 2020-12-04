@@ -509,10 +509,13 @@ div[data-scroll='true']::-webkit-scrollbar-corner {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 #content.tree-hide #tree-toggle{
   left: 15px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
   border-top-right-radius: 112px;
   border-bottom-right-radius: 112px;
 }
