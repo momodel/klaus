@@ -293,7 +293,7 @@ li.commit-li {
 }
 
 /* fix img block in rendered markdown */
-.rendered_html img {
+.rendered_html p img {
   display: inline;
 }
 
