@@ -292,7 +292,10 @@ li.commit-li {
   /*margin-left: 48px;*/
 }
 
-
+/* fix img block in rendered markdown */
+.rendered_html img {
+  display: inline;
+}
 
 
 
