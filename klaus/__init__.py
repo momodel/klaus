@@ -6,7 +6,6 @@ import dulwich.web
 from klaus import views, utils
 from klaus.repo import FancyRepo
 
-
 KLAUS_VERSION = utils.guess_git_revision() or '1.4.0'
 
 
@@ -22,10 +21,9 @@ class Klaus(flask.Flask):
         user_dirs = repo_paths
         repo_objs = []
         for user_dir in user_dirs:
-
             user_repo_paths = [os.path.join(user_dir, x) for x in os.listdir(user_dir)]
-            # 剔除不含有 .git 文件夹的 path
-            repo_objs += [FancyRepo(path) for path in user_repo_paths if os.listdir(path)]
+            # 剔除缺失内容的文件夹的 path
+            repo_objs += [FancyRepo(path) for path in user_repo_paths if len(os.listdir(path)) >= 4]
         self.repos = dict((repo.name, repo) for repo in repo_objs)
         self.site_name = site_name
         self.use_smarthttp = use_smarthttp
