@@ -2,7 +2,7 @@ from io import BytesIO
 import os
 import sys
 
-from flask import request, render_template, current_app, url_for
+from flask import request, render_template, current_app, url_for, make_response
 from flask.views import View
 
 from werkzeug.wrappers import Response
@@ -45,6 +45,15 @@ def repo_list():
         sort_key = lambda repo: (-(repo.get_last_updated_at() or -1), repo.name)
     repos = sorted(current_app.repos.values(), key=sort_key)
     return render_template('repo_list.html', repos=repos, base_href=None)
+
+
+def link_test():
+    """
+    用于klaus链接测试 自定义状态码233
+    """
+    resp = make_response("link success")
+    resp.status = "233"
+    return resp
 
 
 def robots_txt():
