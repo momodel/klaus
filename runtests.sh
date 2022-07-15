@@ -8,6 +8,7 @@
   done
 )
 
+export PYTHONPATH=tests:${PYTHONPATH}
 if [ $# -eq 0 ]; then
   args="-v tests/"
 else
