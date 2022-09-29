@@ -15,11 +15,12 @@ class _:
     should_reload = True
 
 
-def poll_for_changes(interval, dir):
+def poll_for_changes(interval, dir, *args, **kwargs):
     """
     Polls `dir` for changes every `interval` seconds and sets `should_reload`
     accordingly.
     """
+
     def list_dir2(pathname):
         files_depth = glob.glob(f'{pathname}/*/*')
         return list(filter(lambda f: os.path.isdir(f), files_depth))
@@ -34,6 +35,10 @@ def poll_for_changes(interval, dir):
         if new_contents != old_contents:
             # Directory contents changed => should_reload
             old_contents = new_contents
+            _.inner_app = make_app(
+                [os.path.join(dir, x) for x in os.listdir(dir)],
+                args, kwargs
+            )
             _.should_reload = True
 
 
@@ -42,10 +47,11 @@ def make_autoreloading_app(repos_root, *args, **kwargs):
         if _.should_reload:
             # Refresh inner application with new repo list
             print("Reloading repository list...")
-            inner_app = make_app(
+            inner_app = _.inner_app if _.inner_app else make_app(
                 [os.path.join(repos_root, x) for x in os.listdir(repos_root)],
                 *args, **kwargs
             )
+
             @inner_app.errorhandler(404)
             def not_found(e):
                 # defining function
@@ -57,9 +63,8 @@ def make_autoreloading_app(repos_root, *args, **kwargs):
         return _.inner_app(environ, start_response)
 
     # Background thread that polls the directory for changes
-    poller_thread = threading.Thread(target=(lambda: poll_for_changes(10, repos_root)))
+    poller_thread = threading.Thread(target=(lambda: poll_for_changes(10, repos_root, args, kwargs)))
     poller_thread.daemon = True
     poller_thread.start()
 
     return app
-
