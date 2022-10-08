@@ -28,7 +28,8 @@ iv = 'This is an IV456'
 
 
 def encode(message):
-    obj = AES.new(AKEY, AES.MODE_CFB, iv)
+    obj = AES.new(AKEY.encode("utf8"), AES.MODE_CFB, iv.encode("utf8"))
+    message = bytes(message, encoding="utf8")
     return base64.urlsafe_b64encode(obj.encrypt(message)).decode("utf-8")
 
 
