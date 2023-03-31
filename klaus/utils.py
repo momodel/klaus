@@ -217,7 +217,7 @@ def force_unicode(s):
         # Try chardet, if available
         encoding = chardet.detect(s)['encoding']
         if encoding is not None:
-            return s.decode(encoding)
+            return s.decode(encoding, errors='replace')
 
     raise last_exc  # Give up.
 
