@@ -55,7 +55,7 @@ def make_autoreloading_app(repos_root, *args, **kwargs):
             @inner_app.errorhandler(404)
             def not_found(e):
                 # defining function
-                return render_template("404.html")
+                return render_template("404.html"), 404
 
             _.inner_app = inner_app
             _.should_reload = False
