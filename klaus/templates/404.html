@@ -4,11 +4,10 @@
 <div id=content>
 	<div style="display:flex;align-items:center;justify-content:center;height:300px;font-size:14px">创建 Git Repo 中, 请稍等, 2 分钟后页面会自动刷新</div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 <script>
-  $(document).ready(function(){
-    setInterval(function(){ reload_page(); },120000);
+  document.addEventListener('DOMContentLoaded', function(){
+    setInterval(function(){ reload_page(); }, 120000);
   });
 
   function reload_page()
