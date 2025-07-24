@@ -21,7 +21,7 @@ except ImportError:
 from werkzeug.contrib.fixers import ProxyFix as WerkzeugProxyFix
 from humanize import naturaltime
 
-AKEY = '27cfbc4d262403839797636105d0a476'  # AES key must be either 16, 24, or 32 bytes long
+AKEY = '5518e79abe32759ecd26ae05c1884f83'  # AES key must be either 16, 24, or 32 bytes long
 
 # iv = Random.new().read(AES.block_size)
 iv = 'This is an IV456'
